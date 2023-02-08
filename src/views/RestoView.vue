@@ -34,10 +34,10 @@ const excerpt = (text, maxLenght = 10, indicator = "...") => {
         <div class="grid grid-cols-12 gap-4 py-4">
             <div v-for="resto in restos" :key="resto.id" class="col-span-4">
                 <!-- Card -->
-                <a href="#" class="block bg-white shadow p-4 rounded select-none">
+                <router-link :to="{name: 'restos-show', params: {id:resto.id}}" class="block bg-white shadow p-4 rounded select-none">
                     <h1 class="text-lg font-bold capitalize">{{ resto.name }}</h1>
                     <p class="text-gray-500">{{ excerpt(resto.description, 40) }}</p>
-                </a>
+                </router-link>
             </div>
         </div>
     </div>
