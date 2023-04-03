@@ -33,7 +33,6 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <Loading v-if="isLoggingIn" />
   <main class="grid grid-cols-12 min-h-screen">
     <section class="col-span-6 bg-white h-full shadow-xl">
       <form :action="route.path" method="post" class="p-10 py-32 px-32 font-light" @submit.prevent="onSubmit">
