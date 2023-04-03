@@ -41,8 +41,7 @@ onMounted(() => fetchReviews());
 
 <template>
     <BaseContainer>
-        <RouterLink :to="{ name: 'restos' }"
-            class="inline-block p-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-800">
+        <RouterLink :to="{ name: 'restos' }" class="inline-block p-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-800">
             Back
         </RouterLink>
 
@@ -51,7 +50,7 @@ onMounted(() => fetchReviews());
         </BaseCard>
 
         <BaseCard class="mt-4">
-            <template> #title>{{ resto.name }}</template>
+            <template #title>{{ resto.name }}</template>
             {{ resto.description }}
         </BaseCard>
 

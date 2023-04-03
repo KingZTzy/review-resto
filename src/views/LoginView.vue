@@ -33,27 +33,32 @@ const onSubmit = async () => {
 </script>
 
 <template>
+  <Loading v-if="isLoggingIn" />
   <main class="grid grid-cols-12 min-h-screen">
     <section class="col-span-6 bg-white h-full shadow-xl">
-      <form :action="route.path" method="post" class="p-40 font-light" @submit.prevent="onSubmit">
+      <form :action="route.path" method="post" class="p-10 py-32 px-32 font-light" @submit.prevent="onSubmit">
         <h1 class="block text-center mb-2 text-3xl">Login</h1>
 
         <div class="mb-4">
           <label for="email" class="block mb-2">Email</label>
-          <input v-model="credenstials.email" type="email" required placeholder="someone@gmail.com"
-            class="border p-2 w-full bg-gray-50 outline-none focus:ring-4 focus:ring-blue-300 rounded">
+          <input v-model="credenstials.email" type="email" required placeholder="Email Address"
+            class="border p-2 w-full bg-gray-50 outline-none focus:ring-1 focus:ring-blue-300 rounded">
         </div>
 
         <div class="mb-4">
           <label for="password" class="block mb-2">Password</label>
-          <input v-model="credenstials.password" type="password" required
-            class="border p-2 w-full bg-gray-50 outline-none focus:ring-4 focus:ring-blue-300 rounded">
+          <input v-model="credenstials.password" type="password" required placeholder="Password"
+            class="border p-2 w-full bg-gray-50 outline-none focus:ring-1 focus:ring-blue-300 rounded">
         </div>
-        <small class="block mb-2">Don't Have Account? <router-link to="#" class="text-blue-600">Register
+        <small class="block mb-2">Don't Have Account? <router-link :to="{ name: 'register' }" class="text-blue-600 font-bold hover:text-blue-800 transition-colors duration-300">Register
             Here!</router-link> </small>
         <button type="submit"
-          class="bg-blue-600 text-white p-2 w-full block hover:bg-blue-800 rounded transition-colors duration-200">Masuk</button>
+          class="bg-blue-600 text-white p-2 w-full block hover:bg-blue-800 rounded transition-colors duration-300">Masuk</button>
       </form>
     </section>
+
+    <section class="col-span-6">
+            <img class="object-cover h-full" src="../../public/img/Resto1.png">
+        </section>
   </main>
 </template>
