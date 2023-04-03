@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import { useRestoRepository } from '@/composables';
 import BaseCard from '../components/BaseCard.vue';
 import BaseContainer from '../components/BaseContainer.vue';
+import Navbar from '../components/Navbar.vue';
 
 const repository = useRestoRepository();
 
@@ -32,14 +33,17 @@ const excerpt = (text, maxLenght = 10, indicator = "...") => {
 </script>
 
 <template>
-    <BaseContainer>
-        <div class="grid grid-cols-12 gap-4">
-            <div v-for="resto in restos" :key="resto.id" class="col-span-4">
-                <BaseCard :to="{ name: 'restos-show', params: { id: resto.id } }">
-                    <template #title>{{ resto.name }}</template>
-                    {{ excerpt(resto.description, 40) }}
-                </BaseCard>
+    <Navbar />
+    <div class="bg-[#19376D]">
+        <BaseContainer>
+            <div class="grid grid-cols-12 gap-3">
+                <div v-for="resto in restos" :key="resto.id" class="col-span-6 font-serif">
+                    <BaseCard :to="{ name: 'restos-show', params: { id: resto.id } }">
+                        <template #title>{{ resto.name }}</template>
+                        {{ excerpt(resto.description, 40) }}
+                    </BaseCard>
+                </div>
             </div>
-        </div>
-    </BaseContainer>
+        </BaseContainer>
+    </div>
 </template>
