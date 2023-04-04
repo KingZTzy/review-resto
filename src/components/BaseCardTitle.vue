@@ -1,5 +1,5 @@
 <template>
-    <h1 class="text-lg font-bold capitalize">
+    <h5 class="mb-2 text-xl font-bold capitalize text-neutral-800 dark:text-neutral-50">
         <slot />
-    </h1>
+    </h5>
 </template>

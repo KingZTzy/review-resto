@@ -66,7 +66,7 @@ const onSubmit = async () => {
                         class="text-blue-600 hover:text-blue-800 transition-colors duration-300 font-bold">Login
                         Here!</router-link> </small>
                 <button type="submit"
-                    class="bg-blue-600 hover:bg-blue-800 transition-colors duration-300 text-white p-2 w-full block rounded">Masuk</button>
+                    class="bg-blue-600 hover:bg-blue-800 transition-colors duration-300 text-white p-2 w-full block rounded">Register</button>
             </form>
         </section>
 
