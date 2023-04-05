@@ -13,7 +13,8 @@ defineProps({
 </script>
 
 <template>
-    <RouterLink v-if="to" :to="to" class="block bg-[#576CBC] p-4 rounded select-none border-x-4 border-y-4">
+    <RouterLink v-if="to" :to="to"
+        class="block bg-[#576CBC] p-4 rounded-md select-none border border-white shadow-[3px_3px_0px_2px_rgba(230,230,250)] hover:scale-[1.02] duration-300 min-h-full">
         <BaseCardTitle v-if="!!$slots.title">
             <slot name="title" />
         </BaseCardTitle>
@@ -27,7 +28,7 @@ defineProps({
         </BaseCardInfo>
     </RouterLink>
 
-    <div v-else class="block bg-white shadow p-4 rounded select-none">
+    <div v-else class="block bg-[#576CBC] shadow p-4 rounded-sm select-none">
         <BaseCardTitle v-if="!!$slots.title">
             <slot name="title" />
         </BaseCardTitle>
@@ -35,5 +36,9 @@ defineProps({
         <BaseCardBody>
             <slot />
         </BaseCardBody>
+
+        <BaseCardInfo>
+            <slot name="address" />
+        </BaseCardInfo>
     </div>
 </template>

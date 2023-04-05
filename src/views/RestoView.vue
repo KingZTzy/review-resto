@@ -38,10 +38,10 @@ const excerpt = (text, maxLenght = 10, indicator = "...") => {
         <BaseContainer>
             <div class="font-mono capitalize flex justify-between">
                 <img class="h-[65px] my-5 py-3" src="../../public/img/Logo1.png">
-                <p class="text-white text-center my-5 py-3 border-b-4">welcome to Ichikiwir resto</p>
+                <p class="text-white text-center my-5 py-3 border-b-4">welcome to Black'Bull</p>
             </div>
             <div class="grid grid-cols-12 gap-3">
-                <div v-for="resto in restos" :key="resto.id" class="col-span-6 font-serif">
+                <div v-for="resto in restos" :key="resto.id" class="col-span-4 font-serif">
                     <BaseCard :to="{ name: 'restos-show', params: { id: resto.id } }">
                         <template #title>{{ resto.name }}</template>
                         {{ excerpt(resto.description, 40) }}

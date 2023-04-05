@@ -29,6 +29,12 @@ const router = createRouter({
       title: 'Resto Detail',
       component: () => import('../views/RestoDetailView.vue')
     },
+    {
+      path: '/profile',
+      name: 'profile',
+      title: 'Profile',
+      component: () => import('../views/ProfileView.vue')
+    },
   ]
 })
 
