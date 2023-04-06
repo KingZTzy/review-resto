@@ -37,6 +37,7 @@ const onSubmit = async () => {
     CreateReview.value = false
 }
 
+
 const DeleteResto = async () => {
     try {
         const id = route.params.id;
@@ -95,7 +96,7 @@ onMounted(() => fetchReviews());
                 </button>
 
                 <button>
-                    <RouterLink :to="{ name: 'restos' }"
+                    <RouterLink :to="{ name: 'edit-restos', params: { id: resto.id } }"
                         class="px-4 py-2 border-2 bg-green-300 shadow-[2px_2px_0px_2px_rgba(0,0,0,1)] rounded-md hover:shadow-sm duration-300">
                         Edit
                     </RouterLink>

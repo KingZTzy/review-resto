@@ -28,7 +28,7 @@ defineProps({
         </BaseCardInfo>
     </RouterLink>
 
-    <div v-else class="block bg-[#576CBC] shadow p-4 rounded-sm select-none">
+    <div v-else class="block bg-[#576CBC] shadow p-4 rounded-sm select-none min-h-full">
         <BaseCardTitle v-if="!!$slots.title">
             <slot name="title" />
         </BaseCardTitle>
