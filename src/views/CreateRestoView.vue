@@ -45,7 +45,7 @@ const onSubmit = async () => {
 
             <div class="flex flex-col items-center border-b-2 border-black pb-4">
                 <img class="h-[50px] w-[50px]" src="../../public/img/Logo1.png" alt="">
-                <p class="text-2xl">Edit Resto</p>
+                <p class="text-2xl">Create Resto</p>
             </div>
 
             <div class="flex justify-center">
@@ -67,7 +67,7 @@ const onSubmit = async () => {
 
                     <button type="submit"
                         class="px-2 py-1 border-4 border-black bg-[#19376D] text-white rounded shadow-[2px_3px_0px_2px_rgba(230,230,250)] hover:scale-[1.02] active:scale-1 duration-300">
-                        Edit Resto
+                        Create Resto
                     </button>
                 </form>
             </div>
