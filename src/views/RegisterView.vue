@@ -37,7 +37,7 @@ const onSubmit = async () => {
     <loading-cuy v-if="Register"/>
     <main v-else class="grid grid-cols-12 min-h-screen overflow-hidden">
         <section class="col-span-6 opacity-95 bg-[#224585] text-white font-mono h-full">
-            <form :action="route.path" method="post" class="p-10 px-32 py-16 font-light" @submit.prevent="onSubmit">
+            <form :action="route.path" method="post" @submit.prevent="onSubmit" class="p-10 px-32 py-16 font-light">
                 <h1 class="block text-center mb-2 text-3xl uppercase">Register</h1>
 
                 <div class="mb-4">

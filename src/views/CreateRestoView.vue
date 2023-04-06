@@ -49,7 +49,7 @@ const onSubmit = async () => {
             </div>
 
             <div class="flex justify-center">
-                <form :action="route.path" class="flex flex-col w-[500px]" @submit.prevent="onSubmit">
+                <form :action="route.path" @submit.prevent="onSubmit" class="flex flex-col w-[500px]">
                     <label for="name" class="mt-3 mb-2 font-semibold">Nama Resto : </label>
                     <input type="text" name="name"
                         class="border-2 border-[#19376D] p-1 rounded-sm transition-all duration-300 outline-none mb-2"

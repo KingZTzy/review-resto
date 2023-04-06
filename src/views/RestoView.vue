@@ -51,6 +51,13 @@ const excerpt = (text, maxLenght = 10, indicator = "...") => {
                             <template #address>{{ resto.address }}</template>
                         </BaseCard>
                     </div>
+                    
+                    <div class="col-span-12 flex justify-center text-center">
+                        <h1 v-if="restos.length === 0" class="text-white text-semibold text-2xl">
+                            <span class="py-3">Belum ada Resto Masbro . . . .</span>
+                            <img src="../../public/img/Loading2.gif" alt="" class="pt-3">
+                        </h1>
+                    </div>
                 </div>
             </BaseContainer>
         </div>
