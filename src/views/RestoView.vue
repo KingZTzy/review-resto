@@ -4,6 +4,7 @@ import { useRestoRepository } from '@/composables';
 import BaseCard from '../components/BaseCard.vue';
 import BaseContainer from '../components/BaseContainer.vue';
 import Navbar from '../components/Navbar.vue';
+import LoadingCuy from '../components/LoadingCuy.vue';
 
 const repository = useRestoRepository();
 
@@ -33,22 +34,25 @@ const excerpt = (text, maxLenght = 10, indicator = "...") => {
 </script>
 
 <template>
-    <Navbar />
-    <div class="bg-[#19376D]">
-        <BaseContainer>
-            <div class="font-mono capitalize flex justify-between">
-                <img class="h-[65px] my-5 py-3" src="../../public/img/Logo1.png">
-                <p class="text-white text-center my-5 py-3 border-b-4">welcome to Black'Bull</p>
-            </div>
-            <div class="grid grid-cols-12 gap-3">
-                <div v-for="resto in restos" :key="resto.id" class="col-span-4 font-serif">
-                    <BaseCard :to="{ name: 'restos-show', params: { id: resto.id } }">
-                        <template #title>{{ resto.name }}</template>
-                        {{ excerpt(resto.description, 40) }}
-                        <template #address>{{ resto.address }}</template>
-                    </BaseCard>
+    <LoadingCuy v-if="isLoading" />
+    <main v-else>
+        <Navbar />
+        <div class="bg-[#19376D]">
+            <BaseContainer>
+                <div class="font-mono capitalize flex justify-between">
+                    <img class="h-[65px] my-5 py-3" src="../../public/img/Logo1.png">
+                    <p class="text-white text-center my-5 py-3 border-b-4">welcome to Black'Bull</p>
                 </div>
-            </div>
-        </BaseContainer>
-    </div>
+                <div class="grid grid-cols-12 gap-3">
+                    <div v-for="resto in restos" :key="resto.id" class="col-span-4 font-serif">
+                        <BaseCard :to="{ name: 'restos-show', params: { id: resto.id } }">
+                            <template #title>{{ resto.name }}</template>
+                            {{ excerpt(resto.description, 40) }}
+                            <template #address>{{ resto.address }}</template>
+                        </BaseCard>
+                    </div>
+                </div>
+            </BaseContainer>
+        </div>
+    </main>
 </template>

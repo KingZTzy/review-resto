@@ -2,6 +2,7 @@
 import { reactive, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useAuthRepository } from '@/composables';
+import LoadingCuy from '../components/LoadingCuy.vue';
 
 const repository = useAuthRepository()
 const route = useRoute()
@@ -33,7 +34,8 @@ const onSubmit = async () => {
 </script>
 
 <template>
-    <main class="grid grid-cols-12 min-h-screen overflow-hidden">
+    <loading-cuy v-if="Register"/>
+    <main v-else class="grid grid-cols-12 min-h-screen overflow-hidden">
         <section class="col-span-6 opacity-95 bg-[#224585] text-white font-mono h-full">
             <form :action="route.path" method="post" class="p-10 px-32 py-16 font-light" @submit.prevent="onSubmit">
                 <h1 class="block text-center mb-2 text-3xl uppercase">Register</h1>

@@ -30,6 +30,12 @@ const router = createRouter({
       component: () => import('../views/RestoDetailView.vue')
     },
     {
+      path: '/restos/create',
+      name: 'create-restos',
+      title: 'Create Resto',
+      component: () => import('../views/CreateRestoView.vue')
+    },
+    {
       path: '/profile',
       name: 'profile',
       title: 'Profile',

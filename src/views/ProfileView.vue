@@ -3,7 +3,7 @@ import { useAuthRepository } from '../composables/useAuthRepository';
 import { useRestoRepository } from "../composables/useRestoRepository";
 import { ref, onMounted } from "vue";
 import { RouterLink } from "vue-router";
-import Navbar from '../components/Navbar.vue';
+import LoadingCuy from '../components/LoadingCuy.vue'
 
 const DataUser = JSON.parse(localStorage.getItem('user'));
 const AuthRepository = useAuthRepository();
@@ -28,9 +28,18 @@ onMounted(() => {
 </script>
 
 <template>
-    <Navbar />
-    <div class="min-h-screen flex flex-col justify-center my-1 mx-10 font-mono bg-[#19376D] capitalize">
+    <LoadingCuy v-if="isLoading" />
+    <div v-else class="min-h-screen flex flex-col justify-center my-1 mx-10 font-mono bg-[#19376D] capitalize">
         <div class="bg-white flex flex-col items-center p-2">
+            <div class="mr-[980px]">
+                <router-link :to="{ name: 'restos' }">
+                    <button
+                        class="px-2 py-1 border-4 border-black rounded shadow-[2px_3px_0px_2px_rgba(230,230,250)] hover:scale-[1.02] active:scale-1 duration-300">Back
+                        To Home
+                    </button>
+                </router-link>
+            </div>
+
             <div class="flex flex-col items-center border-b-2 border-black w-[500px] mb-3">
                 <div v-if="profile.profile_picture" class="w-[120px] relative mt-6">
                     <img :src="profile" alt="" class="rounded-full" />
@@ -63,17 +72,15 @@ onMounted(() => {
             </div>
 
             <div class="flex flex-row justify-center py-5 mt-2 space-x-3 mb-4 border-black border-t-2 w-[500px]">
-                <button
-                    class="px-2 py-1 border-4 border-black rounded shadow-[2px_3px_0px_2px_rgba(230,230,250)] hover:scale-[1.02] active:scale-1 duration-300">Create
-                    Resto
-                </button>
+                <router-link :to="{ name: 'create-restos' }">
+                    <button
+                        class="px-2 py-1 border-4 border-black rounded shadow-[2px_3px_0px_2px_rgba(230,230,250)] hover:scale-[1.02] active:scale-1 duration-300">Create
+                        Resto
+                    </button>
+                </router-link>
                 <button
                     class="px-2 py-1 border-4 border-black rounded shadow-[2px_3px_0px_2px_rgba(230,230,250)] hover:scale-[1.02] active:scale-1 duration-300">Your
                     Resto
-                </button>
-                <button
-                    class="px-2 py-1 border-4 border-black rounded shadow-[2px_3px_0px_2px_rgba(230,230,250)] hover:scale-[1.02] active:scale-1 duration-300">
-                    Edit Profile
                 </button>
             </div>
         </div>

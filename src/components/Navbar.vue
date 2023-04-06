@@ -36,31 +36,38 @@ const excerpt = (text, maxLength = 10, indicator = "...") => {
 </script>
 
 <template>
-    <main class="max-w-screen-xl mx-auto grid grid-cols-12 grid-rows-6 bg-[#0B2447] overflow-hidden select-none">
+    <main class="max-w-screen-xl mx-auto grid grid-cols-12 grid-rows-6 bg-[#0B2447] overflow-hidden select-none font-mono">
         <div class="row-span-full col-span-full">
             <nav class="flex justify-between">
-                <div class="mr-auto mx-10 py-6 font-bold text-2xl">
+                <div class="mr-auto mx-10 py-8 font-bold text-2xl flex flex-row space-x-5">
                     <router-link :to="{ name: 'restos' }"
-                        class="text-white opacity-80 hover:opacity-100 transition duration-300 tracking-wider font-light font-mono flex">
+                        class="text-white hover:scale-[1.02] transition duration-300 tracking-wider font-light font-mono flex mt-1">
                         <img class="h-8 mr-3" src="../../public/img/Logo1.png" alt="">
                         Black'Bull
                     </router-link>
+                    <p
+                        class="text-white text-lg py-1 border-[1px] border-white rounded-xl px-5 shadow-[1px_1px_0px_1px] hover:shadow-sm duration-300">
+                        Hi,@{{ excerpt(DataUser.name, 10) }}</p>
                 </div>
 
-                <div class="flex font-mono uppercase text-white">
-                    <ul class="flex py-7">
+                <div class="flex flex-row font-mono uppercase text-white">
+                    <ul class="flex py-9 space-x-4">
                         <li><router-link :to="{ name: 'restos' }"
-                                class="hover:bg-blue-600 transition duration-300 p-3">Home</router-link></li>
-                        <li><router-link :to="{ name: 'restos' }"
-                                class="hover:bg-blue-600 transition duration-300 p-3">Resto</router-link></li>
+                                class="text-white text-lg py-1 border-[1px] border-white rounded-xl px-5 shadow-[1px_1px_0px_1px] hover:shadow-sm duration-300 p-3">Home</router-link>
+                        </li>
+                        <li><router-link :to="{ name: 'create-restos' }"
+                                class="text-white text-lg py-1 border-[1px] border-white rounded-xl px-5 shadow-[1px_1px_0px_1px] hover:shadow-sm duration-300 p-3">Resto</router-link>
+                        </li>
                         <li><router-link :to="{ name: 'profile' }"
-                                class="hover:bg-blue-600 transition duration-300 p-3">Profile</router-link></li>
+                                class="text-white text-lg py-1 border-[1px] border-white rounded-xl px-5 shadow-[1px_1px_0px_1px] hover:shadow-sm duration-300 p-3">Profile</router-link>
+                        </li>
                     </ul>
-                    <p class="p-3 py-7">{{ excerpt(DataUser.name, 10) }}</p>
-                    <button @click="onSubmit"
-                        class="hover:bg-blue-600 transition duration-300 uppercase p-3 font-mono">Logout</button>
+
+                    <div class="flex py-7 ml-4 mr-4">
+                        <button @click="onSubmit"
+                            class="text-white text-lg py-1 border-[1px] border-white rounded-xl shadow-[1px_1px_0px_1px] hover:shadow-sm duration-300 p-3">Logout</button>
+                    </div>
                 </div>
-            </nav>
-        </div>
-    </main>
-</template>
+        </nav>
+    </div>
+</main></template>
