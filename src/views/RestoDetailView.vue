@@ -1,7 +1,7 @@
 <script setup>
 import { useRestoRepository } from "@/composables";
 import { reactive, ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useReviewsRepository } from "../composables/useReviewsRepository";
 import BaseCard from "../components/BaseCard.vue";
 import BaseContainer from "../components/BaseContainer.vue";
@@ -11,6 +11,7 @@ import LoadingCuy from "../components/LoadingCuy.vue";
 const repository = useRestoRepository()
 const reviewRepository = useReviewsRepository()
 const route = useRoute()
+const router = useRouter()
 
 
 const id = route.params.id;
@@ -34,6 +35,19 @@ const onSubmit = async () => {
     }
 
     CreateReview.value = false
+}
+
+const DeleteResto = async () => {
+    try {
+        const id = route.params.id;
+        const { data } = await repository.destroy(id);
+
+        if (data) {
+            router.replace({ name: 'restos'})
+        }
+    } catch (e) {
+        console.error(e)
+    }
 }
 
 const isLoading = ref(true)
@@ -72,10 +86,26 @@ onMounted(() => fetchReviews());
     <main v-else class="bg-[#19376D]">
         <Navbar />
         <BaseContainer class="font-mono">
-            <RouterLink :to="{ name: 'restos' }"
-                class="px-4 py-2 border-2 text-white shadow-[2px_2px_0px_2px_rgba(0,0,0,1)] rounded-md hover:shadow-sm duration-300">
-                Back
-            </RouterLink>
+            <div class="space-x-5">
+                <button>
+                    <RouterLink :to="{ name: 'restos' }"
+                        class="px-4 py-2 border-2 text-white shadow-[2px_2px_0px_2px_rgba(0,0,0,1)] rounded-md hover:shadow-sm duration-300">
+                        Back
+                    </RouterLink>
+                </button>
+
+                <button>
+                    <RouterLink :to="{ name: 'restos' }"
+                        class="px-4 py-2 border-2 bg-green-300 shadow-[2px_2px_0px_2px_rgba(0,0,0,1)] rounded-md hover:shadow-sm duration-300">
+                        Edit
+                    </RouterLink>
+                </button>
+
+                <button @click="DeleteResto"
+                    class="px-4 py-2 border-2 bg-red-300 shadow-[2px_2px_0px_2px_rgba(0,0,0,1)] rounded-md hover:shadow-sm duration-300">
+                    Delete
+                </button>
+            </div>
 
             <BaseCard class="mt-4 bg-[#0B2447] text-white text-center">
                 <template #title>Resto</template>
